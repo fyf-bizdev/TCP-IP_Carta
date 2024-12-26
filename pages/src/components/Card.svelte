@@ -1,8 +1,12 @@
 <script lang="ts">
+    import yomifuda from '../assets/readData.json';
+
     let showName: boolean =$state(true);
     let showRFC: boolean =$state(true);
     let showPort: boolean =$state(true);
     let showDesc: boolean =$state(true);
+
+    const order = [...Array(36)].map((_, i) => i).slice().sort(() => Math.random() - Math.random());
 </script>
 
 <div class="settings">
@@ -35,6 +39,24 @@
         </div>
     </label>
 </div>
+
+{#each order as i}
+    <div class="card">
+        {#if showName}
+            <h2>プロトコル名: {yomifuda[i].name}</h2>
+        {/if}
+        {#if showRFC}
+            <p>RFC: {yomifuda[i].rfc}</p>
+        {/if}
+        {#if showPort}
+            <p>ポート番号: {yomifuda[i].protocol}</p>
+        {/if}
+        {#if showDesc}
+            <p>説明: {yomifuda[i].description}</p>
+        {/if}
+    </div>
+    <hr>
+{/each}
 
 <style>
     .settings {
