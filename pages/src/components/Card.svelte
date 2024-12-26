@@ -42,8 +42,9 @@
 
 {#each order as i}
     <div class="card">
+        <p>{i+1}: </p>
         {#if showName}
-            <h2>プロトコル名: {yomifuda[i].name}</h2>
+            <p>プロトコル名: {yomifuda[i].name}</p>
         {/if}
         {#if showRFC}
             <p>RFC: {yomifuda[i].rfc}</p>
