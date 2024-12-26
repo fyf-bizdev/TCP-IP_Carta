@@ -1,5 +1,5 @@
 {
-  "name": "yomi-test",
+  "name": "pages",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -9,10 +9,9 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.1.1"
-  },
-  "main": "index.js",
-  "author": "",
-  "license": "ISC",
-  "description": ""
+    "@astrojs/svelte": "^7.0.2",
+    "astro": "^5.1.1",
+    "svelte": "^5.16.0",
+    "typescript": "^5.7.2"
+  }
 }
