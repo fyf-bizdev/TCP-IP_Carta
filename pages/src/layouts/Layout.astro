@@ -1,17 +1,19 @@
 ---
-import '../styles/global.css';
+// import '../styles/global.css';
+import Footer from '../components/Footer.astro';
 ---
 
 <!doctype html>
-<html lang="jp">
+<html lang="jp" class="bg-gray-300 font-sans">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="icon" type="image/svg+xml" href="/TCP-IP_Carta/favicon.svg" />
 		<!-- <meta name="generator" content={Astro.generator} /> -->
 		<title>{Astro.props.title}</title>
 	</head>
-	<body>
+	<body class="max-w-7xl pt-2 mx-auto my-0">
 		<slot />
+		<Footer />
 	</body>
 </html>
