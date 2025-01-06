@@ -1,5 +1,4 @@
 <script lang="ts">
-    import { preprocess } from 'svelte/compiler';
     import yomifuda from '../assets/readData.json';
 
     let showName: boolean =$state(true);
@@ -42,24 +41,30 @@
         </label>
     </div>
     
-    {#each order as i}
-        <div class="card">
-            <p>{i+1}: </p>
-            {#if showName}
-                <p>プロトコル名: {yomifuda[i].name}</p>
-            {/if}
-            {#if showRFC}
-                <p>RFC: {yomifuda[i].rfc}</p>
-            {/if}
-            {#if showPort}
-                <p>ポート番号: {yomifuda[i].protocol}</p>
-            {/if}
-            {#if showDesc}
-                <p>説明: {yomifuda[i].description}</p>
-            {/if}
-        </div>
-        <hr class="my-2 bg-gray-400 border-0 h-px">
-    {/each}
+    <div class="flex justify-center flex-wrap gap-4 mt-4">
+        {#each order as i}
+            <div class="p-4 bg-white shadow-md rounded-lg max-w-lg w-full text-lg">
+                <div class="pb-2 grid grid-cols-[max-content_auto_auto] gap-2">
+                    {#if showName}
+                        <p class="font-bold">プロトコル名:</p>
+                        <p class="col-span-2">{yomifuda[i].name}</p>
+                    {/if}
+                    {#if showRFC}
+                        <p class="font-bold">RFC:</p>
+                        <p class="col-span-2">{yomifuda[i].rfc}</p>
+                    {/if}
+                    {#if showPort}
+                        <p class="font-bold">ポート番号:</p>
+                        <p class="col-span-2">{yomifuda[i].protocol}</p>
+                    {/if}
+                </div>
+                {#if showDesc}
+                    <p class="font-bold">説明:</p>
+                    <p>{yomifuda[i].description}</p>
+                {/if}
+            </div>
+        {/each}
+    </div>
 </div>
 
 <style lang="scss">
@@ -82,6 +87,7 @@
     }
 
     .switch {
+        @apply w-52 justify-between;
         input[type="checkbox"]:checked {
             +.base {
                 @apply bg-green-500;
