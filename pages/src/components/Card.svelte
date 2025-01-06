@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { preprocess } from 'svelte/compiler';
     import yomifuda from '../assets/readData.json';
 
     let showName: boolean =$state(true);
@@ -10,36 +11,33 @@
 </script>
 
 <div class="p-4">
-    <div class="w-2/3 md:w-4/5 flex justify-around items-center flex-col md:flex-row gap-2 mx-auto mb-2 settings
-                [&>label]:cursor-pointer [&>label]:relative [&>label]:flex [&>label]:items-center [&>label]:gap-2
-                [&>label]:md:flex-col [&>label]:md:gap-1
-                [&>label_input[type='checkbox']]:hidden">
+    <div class="settings">
         <label class="switch">
             プロトコル名の表示
             <input type="checkbox" onclick={() => showName = !showName} checked={showName}>
-            <div class="base rounded-full">
-                <span class="slider rounded-full"></span>
+            <div class="base">
+                <span class="slider"></span>
             </div>
         </label>
         <label class="switch">
             RFCの表示
             <input type="checkbox" onclick={() => showRFC = !showRFC} checked={showRFC}>
-            <div class="base rounded-full">
-                <span class="slider rounded-full"></span>
+            <div class="base">
+                <span class="slider"></span>
             </div>
         </label>
         <label class="switch">
             ポート番号の表示
             <input type="checkbox" onclick={() => showPort = !showPort} checked={showPort}>
-            <div class="base rounded-full">
-                <span class="slider rounded-full"></span>
+            <div class="base">
+                <span class="slider"></span>
             </div>
         </label>
         <label class="switch">
             説明の表示
             <input type="checkbox" onclick={() => showDesc = !showDesc} checked={showDesc}>
-            <div class="base rounded-full">
-                <span class="slider rounded-full"></span>
+            <div class="base">
+                <span class="slider"></span>
             </div>
         </label>
     </div>
@@ -64,38 +62,33 @@
     {/each}
 </div>
 
-<style>
+<style lang="scss">
     .settings {
-        --button-width: 50px;
-        --button-height: 30px;
+        @apply w-2/3 md:w-4/5 flex justify-around items-center flex-col md:flex-row gap-2 mx-auto mb-2;
+        >label {
+            @apply cursor-pointer relative flex items-center gap-2 md:flex-col md:gap-1;
+            input[type='checkbox'] {
+                @apply hidden;
+            }
+        }
     }
 
     .base {
-        position: relative;
-        background-color: gray;
-        transition: background-color 0.2s ease;
-        width: var(--button-width);
-        height: var(--button-height);
-
-        display: flex;
-        justify-content: space-evenly;
+        @apply rounded-full relative bg-gray-500 transition delay-200 ease-linear w-12 h-8 flex justify-evenly;
     }
 
     .slider {
-        position: absolute;
-        top: 2px;
-        left: 2px;
-        width: calc(var(--button-height) - 4px);
-        height: calc(var(--button-height) - 4px);
-        background-color: white;
-        transition: transform 0.3s ease;
+        @apply rounded-full absolute top-0.5 left-0.5 w-7 h-7 bg-white transition-transform duration-300 ease-out;
     }
 
-    .switch input[type="checkbox"]:checked + .base .slider {
-        transform: translateX(calc(var(--button-width) - var(--button-height)));
-    }
-
-    .switch input[type="checkbox"]:checked + .base {
-        background-color: #12b936;
+    .switch {
+        input[type="checkbox"]:checked {
+            +.base {
+                @apply bg-green-500;
+                .slider {
+                    @apply translate-x-4;
+                }
+            }
+        }
     }
 </style>
