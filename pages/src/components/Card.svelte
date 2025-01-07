@@ -6,6 +6,8 @@
     let showPort: boolean =$state(true);
     let showDesc: boolean =$state(true);
 
+    let clicked: boolean[] = $state([...Array(36)].map(() => false));
+
     const order = [...Array(36)].map((_, i) => i).slice().sort(() => Math.random() - Math.random());
 </script>
 
@@ -74,27 +76,37 @@
     </div>
     
     <div class="flex justify-center flex-wrap gap-4 mt-4">
-        {#each order as i}
-            <div class="p-4 bg-white shadow-md rounded-lg max-w-lg w-full text-lg">
-                <div class="pb-2 grid grid-cols-[max-content_auto_auto] gap-2">
-                    {#if showName}
-                        <p class="font-bold">プロトコル名:</p>
-                        <p class="col-span-2">{yomifuda[i].name}</p>
-                    {/if}
-                    {#if showRFC}
-                        <p class="font-bold">RFC:</p>
-                        <p class="col-span-2">{yomifuda[i].rfc}</p>
-                    {/if}
-                    {#if showPort}
-                        <p class="font-bold">ポート番号:</p>
-                        <p class="col-span-2">{yomifuda[i].protocol}</p>
-                    {/if}
-                </div>
-                {#if showDesc}
-                    <p class="font-bold">説明:</p>
-                    <p>{yomifuda[i].description}</p>
+        {#each order as o}
+            <button onclick={() => {clicked[o] = !clicked[o]}}
+                    class="p-4 bg-gray-100 shadow-md rounded-lg max-w-lg w-full text-lg text-left flex flex-col min-h-72 md:min-h-64">
+                {#if !clicked[o]}
+                    <div class="front">
+                        <div class={[showName||showRFC||showPort ? 'pb-2' : '', 'grid grid-cols-[max-content_auto_auto] gap-2']}>
+                            {#if showName}
+                                <p class="font-bold">プロトコル名:</p>
+                                <p class="col-span-2">{yomifuda[o].name}</p>
+                            {/if}
+                            {#if showRFC}
+                                <p class="font-bold">RFC:</p>
+                                <p class="col-span-2">{yomifuda[o].rfc}</p>
+                            {/if}
+                            {#if showPort}
+                                <p class="font-bold">ポート番号:</p>
+                                <p class="col-span-2">{yomifuda[o].protocol}</p>
+                            {/if}
+                        </div>
+                        {#if showDesc}
+                            <p class="font-bold">説明:</p>
+                            <p>{yomifuda[o].description}</p>
+                        {/if}
+                    </div>
+                {:else}
+                    <div class="back">
+                        <h1 class="font-bold text-4xl">{yomifuda[o].name}</h1>
+                        <h3 class="text-2xl">{yomifuda[o].protocol}</h3>
+                    </div>
                 {/if}
-            </div>
+            </button>
         {/each}
     </div>
 </div>
@@ -141,5 +153,9 @@
                 }
             }
         }
+    }
+
+    .back {
+        @apply flex justify-center items-center flex-col gap-2 h-full mx-auto my-0;
     }
 </style>
