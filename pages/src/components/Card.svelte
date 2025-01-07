@@ -10,7 +10,39 @@
 </script>
 
 <div class="p-4">
-    <div class="settings">
+    <details class="settings_mobile">
+        <summary>表示設定</summary>
+        <label class="switch">
+            プロトコル名の表示
+            <input type="checkbox" onclick={() => showName = !showName} checked={showName}>
+            <div class="base">
+                <span class="slider"></span>
+            </div>
+        </label>
+        <label class="switch">
+            RFCの表示
+            <input type="checkbox" onclick={() => showRFC = !showRFC} checked={showRFC}>
+            <div class="base">
+                <span class="slider"></span>
+            </div>
+        </label>
+        <label class="switch">
+            ポート番号の表示
+            <input type="checkbox" onclick={() => showPort = !showPort} checked={showPort}>
+            <div class="base">
+                <span class="slider"></span>
+            </div>
+        </label>
+        <label class="switch">
+            説明の表示
+            <input type="checkbox" onclick={() => showDesc = !showDesc} checked={showDesc}>
+            <div class="base">
+                <span class="slider"></span>
+            </div>
+        </label>
+    </details>
+
+    <div class="settings_pc">
         <label class="switch">
             プロトコル名の表示
             <input type="checkbox" onclick={() => showName = !showName} checked={showName}>
@@ -69,13 +101,26 @@
 
 <style lang="scss">
     .settings {
-        @apply w-2/3 md:w-4/5 flex justify-around items-center flex-col md:flex-row gap-2 mx-auto mb-2;
+        @apply justify-around items-center mb-2 sticky top-0 z-10 p-2 bg-gray-300
+               shadow-sm;
         >label {
-            @apply cursor-pointer relative flex items-center gap-2 md:flex-col md:gap-1;
+            @apply cursor-pointer relative flex items-center;
             input[type='checkbox'] {
                 @apply hidden;
             }
         }
+    }
+
+    .settings_mobile {
+        @extend .settings;
+        @apply w-svw flex flex-col open:gap-2 -mx-4 md:hidden;
+        >label { @apply gap-2 mb-2; }
+    }
+
+    .settings_pc {
+        @extend .settings;
+        @apply hidden w-full flex-row mx-auto md:flex;
+        >label { @apply gap-1 flex-col; }
     }
 
     .base {
