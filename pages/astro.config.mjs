@@ -9,5 +9,10 @@ import tailwind from '@astrojs/tailwind';
 export default defineConfig({
   site: 'https://fyf-bizdev.github.io',
   base: '/TCP-IP_Carta',
-  integrations: [svelte(), tailwind()]
+  integrations: [
+    svelte(),
+    tailwind({
+      nesting: true,
+    }),
+  ]
 });
