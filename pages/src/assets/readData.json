@@ -4,7 +4,7 @@
   {"name": "DHCP server", "rfc": "RFC2131", "protocol": "UDP/67", "description": "IPv4ネットワークで動作するホストへ構成情報を渡すプロトコルにおいて、サーバ側が待ち受けているポート"},
   {"name": "DHCPv6 client", "rfc": "RFC8415", "protocol": "UDP/546", "description": "IPv6ネットワークで動作するホストへ構成情報を渡すプロトコルにおいて、サーバから情報を受け取るポート"},
   {"name": "DHCPv6 server", "rfc": "RFC8415", "protocol": "UDP/547", "description": "IPv6ネットワークで動作するホストへ構成情報を渡すプロトコルにおいて、サーバ側が待ち受けているポート"},
-  {"name": "DNS over TLS", "rfc": "RFC7858", "protocol": "TCP/853", "description": "ドメイン名とIPアドレスの対応付けや、メールの宛先ホストを指示を、TLSコネクション上で行うシステム用のポート"},
+  {"name": "DNS over TLS", "rfc": "RFC7858", "protocol": "TCP/853", "description": "ドメイン名とIPアドレスの対応付けや、メールの宛先ホストの指示を、TLSコネクション上で行うシステム用のポート"},
   {"name": "DNS", "rfc": "RFC1034、RFC1035", "protocol": "TCP/53、UDP/53", "description": "ドメイン名とIPアドレスの対応付けや、メールの宛先ホストを指示するためのシステム"},
   {"name": "FTP-data", "rfc": "RFC959", "protocol": "TCP/20", "description": "データを確実かつ効率的に転送するなどの目的を持つプロトコルのうち、データが転送されるコネクションに用いられる"},
   {"name": "FTP", "rfc": "RFC959", "protocol": "TCP/21", "description": "データを確実かつ効率的に転送するなどの目的を持つプロトコルのうち、コマンドやリプライのやりとりを行うコネクションに用いられる"},

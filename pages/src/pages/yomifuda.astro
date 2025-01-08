@@ -1,0 +1,14 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.svelte';
+
+const title: string = "読み札リスト";
+---
+
+<Layout title={title}>
+	<div class="max-w-7xl pt-2 mx-auto my-0">
+		<h1 class="mx-4 my-0 text-2xl font-semibold">{title}</h1>
+
+		<Card client:load />
+	</div>
+</Layout>
