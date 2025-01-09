@@ -31,9 +31,9 @@
                   md:bg-transparent"
            class:hidden={!isOpen}>
         <a href="/TCP-IP_Carta#rule"
-           class="shadow-sm">遊び方</a>
+           class="shadow-sm" onclick={() => isOpen = false}>遊び方</a>
         <a href="/TCP-IP_Carta/yomifuda"
-           class="shadow-sm">読み札リスト</a>
+           class="shadow-sm" onclick={() => isOpen = false}>読み札リスト</a>
       </div>
     </div>
   </div>
