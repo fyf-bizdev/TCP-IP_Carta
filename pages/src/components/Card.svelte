@@ -112,7 +112,7 @@
 </div>
 
 <style lang="scss">
-    .settings {
+    %settings {
         @apply justify-around items-center mb-2 sticky top-0 z-10 p-2 bg-gray-300
                shadow-sm;
         >label {
@@ -124,13 +124,13 @@
     }
 
     .settings_mobile {
-        @extend .settings;
+        @extend %settings;
         @apply w-svw flex flex-col open:gap-2 -mx-4 md:hidden;
         >label { @apply gap-2 mb-2; }
     }
 
     .settings_pc {
-        @extend .settings;
+        @extend %settings;
         @apply hidden w-full flex-row mx-auto md:flex;
         >label { @apply gap-1 flex-col; }
     }
