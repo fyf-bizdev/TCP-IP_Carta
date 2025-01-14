@@ -1,21 +1,134 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import '@fortawesome/fontawesome-svg-core/styles.css'
+import { icon } from '@fortawesome/fontawesome-svg-core'
+import {
+    faEthernet,
+    faArrowUpRightFromSquare as faLink,
+    faAsterisk,
+    faCirclePlus,
+    faCircleMinus
+} from '@fortawesome/free-solid-svg-icons'
+import '@fortawesome/fontawesome-svg-core'
+
+const Ethicon = icon(faEthernet, {
+    styles: {
+        'color': '#14532d'
+    }
+});
+const CPicon = icon(faCirclePlus, {
+    styles: {
+        'color': '#16a34a'
+    }
+});
+const CMicon = icon(faCircleMinus, {
+    styles: {
+        'color': '#16a34a'
+    }
+})
 ---
 
 <Layout title="">
     <section id="about">
-        <h2>TCP/IP Carta とは</h2>
+        <h2><Fragment set:html={Ethicon.html}/> ポート番号、覚えてますか？</h2>
+        <p>ネットワーク通信に<wbr>欠かせない<wbr>プロトコル。</p>
+        <p>そのポート番号と<wbr>プロトコルの<wbr>名前の<wbr>対応を<wbr>かるたにしました。</p>
+        <p>見知ったものから<wbr>ニッチなものまで、全36種類。</p>
+        <p>あなたは<wbr>いくつ<wbr>覚えていますか？</p>
     </section>
     <section id="rule">
-        <h2>遊び方</h2>
+        <h2><Fragment set:html={Ethicon.html}/> 遊び方</h2>
+        <ol class="list-decimal">
+            <li>表を<wbr>上にして、取り札を<wbr>ランダムに<wbr>並べます。</li>
+            <li>説明書のQRコードから<wbr>読み上げ動画の<wbr>プレイリストに<wbr>アクセスします。</li>
+            <li>
+                <p>対象の<wbr>取り札が<wbr>最初に<wbr>分かった人が<wbr>札に触って<wbr>札を取ります。</p>
+                <p class="text-sm pl-2"><Fragment set:html={icon(faAsterisk).html}/> お手付きを<wbr>一回休みにするかは<wbr>プレイヤーの<wbr>知識量で<wbr>調整することを<wbr>おすすめします。</p>
+            </li>
+            <li>36枚全ての札が<wbr>読み上げられたとき、一番多くの札を<wbr>持っていた人が<wbr>勝者です。</li>
+        </ol>
+        <section id="rule_detail">
+            <h2><Fragment set:html={Ethicon.html}/> こんな遊び方も...</h2>
+            <details>
+                <summary><Fragment set:html={CPicon.html}/> 難易度の調整</summary>
+                <p>取り札の一部を、<wbr>裏を上にして<wbr>並べることで<wbr>難易度を<wbr>下げることが<wbr>出来ます。裏にする枚数が<wbr>多いほど、難易度が<wbr>下がります。</p>
+            </details>
+            <details>
+                <summary><Fragment set:html={CPicon.html}/> 通常の遊び方に慣れてきたら</summary>
+                <p>読み上げの内容を<wbr>変化させて<wbr>遊ぶことも<wbr>できます。</p>
+                <p class="mt-2">例えば...</p>
+                <ul class="list-['-_']">
+                    <li>ポート番号 → プロトコル名 <wbr>の順に読み上げ <wbr>(取り札は表面を上に)</li>
+                    <li>プロトコル名 → ポート番号 <wbr>の順に読み上げ <wbr>(取り札は裏面を上に)</li>
+                    <li>RFC → ポート番号 → プロトコル名 <wbr>の順に読み上げ <wbr>(ギーク向け)</li>
+                </ul>
+            </details>
+        </section>
+    </section>
+    <section id="content">
+        <h2><Fragment set:html={Ethicon.html}/> 収録プロトコル例</h2>
+        <p>aaaaaaaaa</p>
     </section>
     <section id="product">
-        <h2>商品について</h2>
+        <h2><Fragment set:html={Ethicon.html}/> 商品について</h2>
+        <p>aaaaaaaaa</p>
     </section>
 </Layout>
 
-<style>
+<style lang="scss">
     section {
-        @apply max-w-7xl my-4;
+        @apply max-w-7xl mx-auto my-2 pt-2;
+        >h2 {
+            @apply mx-6 px-3 py-1
+                   text-xl
+                   bg-gray-100
+                   rounded-lg;
+        }
+        >p, ol{
+            @apply mx-11 py-0.5
+                   text-lg
+                   break-keep break-words;
+            &:first-of-type {
+                @apply pt-3;
+            }
+            a {
+                @apply font-bold underline;
+            }
+        }
+        ol {
+            @apply ml-16;
+        }
+    }
+
+    #rule_detail {
+        @apply mb-0;
+        >h2 {
+            @apply ml-11;
+        }
+        details {
+            @apply ml-14 mr-6 py-0.5
+                   open:pb-1;
+            &:first-of-type {
+                @apply pt-1;
+            }
+            p, ul {
+                @apply ml-5
+                       text-base
+                       break-keep break-words;
+            }
+            p {
+                @apply py-0.5;
+            }
+            ul {
+                @apply ml-8;
+            }
+        }
+        summary {
+            @apply block
+                   px-3 py-0.5
+                   text-lg
+                   bg-gray-100
+                   rounded-lg;
+        }
     }
 </style>
