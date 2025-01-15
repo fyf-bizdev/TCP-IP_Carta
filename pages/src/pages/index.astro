@@ -5,7 +5,6 @@ import '@fortawesome/fontawesome-svg-core/styles.css'
 import { icon } from '@fortawesome/fontawesome-svg-core'
 import {
     faEthernet,
-    faArrowUpRightFromSquare as faLink,
     faAsterisk,
     faCirclePlus,
     faCircleMinus
@@ -95,26 +94,57 @@ const CMicon = icon(faCircleMinus, {
         </div>
         <h3>DNS (TCP, UDP)</h3>
         <div class="imageset md:mx-11">
-            <figare>
+            <figure>
                 <Image src={dnsFront} alt="DNS 表" />
-            </figare>
-            <figare>
+            </figure>
+            <figure>
                 <Image src={dnsBack} alt="DNS 裏" />
-            </figare>
+            </figure>
         </div>
         <h3>HSRP (UDP)</h3>
         <div class="imageset md:mx-11">
-            <figare>
+            <figure>
                 <Image src={hsrpFront} alt="HSRP 表" />
-            </figare>
-            <figare>
+            </figure>
+            <figure>
                 <Image src={hsrpBack} alt="HSRP 裏" />
-            </figare>
+            </figure>
         </div>
     </section>
     <section id="product">
         <h2><Fragment set:html={Ethicon.html}/> 商品について</h2>
-        <p>aaaaaaaaa</p>
+        <div class="flex flex-wrap justify-between mx-11 md:mx-auto pt-3 pb-0.5 max-w-2xl">
+            <div class="w-full max-w-80">
+                <p class="font-bold">初出</p>
+                <ul class="list-disc list-inside ml-4">
+                    <li>ゲームマーケット2025春</li>
+                </ul>
+            </div>
+            <div class="w-full max-w-80">
+                <p class="font-bold">プレイ時間</p>
+                <ul class="list-disc list-inside ml-4">
+                    <li>30分~</li>
+                </ul>
+            </div>
+            <div class="w-full max-w-80">
+                <p class="font-bold">対象</p>
+                <ul class="list-disc list-inside ml-4">
+                    <li>インフラエンジニア</li>
+                </ul>
+            </div>
+            <div class="w-full max-w-80">
+                <p class="font-bold">人数</p>
+                <ul class="list-disc list-inside ml-4">
+                    <li>2~6人</li>
+                </ul>
+            </div>
+            <div class="w-full max-w-80">
+                <p class="font-bold">販売価格</p>
+                <ul class="list-disc list-inside ml-4">
+                    <li>2500円 (<a href="http://">Booth</a>)</li>
+                </ul>
+            </div>
+        </div>
     </section>
 </Layout>
 
@@ -126,6 +156,9 @@ const CMicon = icon(faCircleMinus, {
                    text-xl
                    bg-gray-100
                    rounded-lg;
+            +p, +ol, +ul {
+                @apply pt-3;
+            }
         }
         >h3 {
             @apply ml-8 mr-6 my-2
@@ -134,19 +167,16 @@ const CMicon = icon(faCircleMinus, {
                    bg-gray-100
                    rounded-lg;
         }
-        >p, ol{
+        >p, >ol, >ul{
             @apply mx-11 py-0.5
                    text-lg
                    break-keep break-words;
-            &:first-of-type {
-                @apply pt-3;
-            }
-            a {
-                @apply font-bold underline;
-            }
         }
         ol {
             @apply ml-16;
+        }
+        a {
+            @apply font-bold underline;
         }
     }
 
@@ -157,10 +187,8 @@ const CMicon = icon(faCircleMinus, {
         }
         details {
             @apply ml-14 mr-6 py-0.5
-                   open:pb-1;
-            &:first-of-type {
-                @apply pt-1;
-            }
+                   open:pb-1
+                   first-of-type:pt-1;
             p, ul {
                 @apply ml-5
                        text-base
