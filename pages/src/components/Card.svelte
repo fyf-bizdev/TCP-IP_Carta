@@ -125,7 +125,7 @@
 
     .settings_mobile {
         @extend %settings;
-        @apply w-svw flex flex-col open:gap-2 -mx-4 md:hidden;
+        @apply w-full flex flex-col open:gap-2 mx-auto md:hidden;
         >label { @apply gap-2 mb-2; }
     }
 
