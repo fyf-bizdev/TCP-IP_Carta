@@ -1,0 +1,68 @@
+---
+import Layout from "../layouts/Layout.astro"
+import '@fortawesome/fontawesome-svg-core/styles.css'
+import { icon } from '@fortawesome/fontawesome-svg-core';
+import { faEthernet } from "@fortawesome/free-solid-svg-icons";
+
+const Ethicon = icon(faEthernet, {
+    styles: {
+        'color': '#16a34a'
+    }
+});
+
+const title: string = "購入者向け: 拡張ルール";
+---
+
+<Layout title={title}>
+    <div class="max-w-7xl pt-2 mx-auto my-0">
+        <h1 class="mx-4 my-0 text-2xl font-semibold">{title}</h1>
+    </div>
+    <section id="yomi_append">
+        <h2><Fragment set:html={Ethicon.html} /> 読みプレイリストへのリンク</h2>
+        <div class="grid grid-cols-3 gap-2 mx-11 py-1 md:grid-cols-7">
+            <p>難易度: 中</p>
+            <a class="col-span-2 md:col-span-6" href="https://www.youtube.com/watch?v=LysOdFsB5NA&list=PLrsfmh4yPZ779gmYtYYSe5kVY-i3flQYZ">[ポート番号 → プロトコル名] の順で読み上げるプレイリスト</a>
+            <p>難易度: 中</p>
+            <a class="col-span-2 md:col-span-6" href="https://www.youtube.com/watch?v=6dsftzsK64s&list=PLrsfmh4yPZ77Nb6c6eSOjsQ5ReohHIOZG">[プロトコル名 → ポート番号] の順で読み上げるプレイリスト</a>
+            <p>難易度: 高</p>
+            <a class="col-span-2 md:col-span-6" href="https://www.youtube.com/watch?v=5Yqc2h5yBRQ&list=PLrsfmh4yPZ743jhjHOIWjjYabBt-c8Q_6">[RFC → ポート番号 → プロトコル名] の順で読み上げるプレイリスト</a>
+        </div>
+    </section>
+    <section id="rule_append">
+        <h2><Fragment set:html={Ethicon.html} /> 追加ルール</h2>
+        <p>ここに追加ルールの説明</p>
+    </section>
+</Layout>
+
+<style lang="scss">
+    section {
+        @apply max-w-7xl mx-auto my-2 pt-2;
+        >h2 {
+            @apply mx-6 px-3 py-1
+                   text-xl
+                   bg-gray-100
+                   rounded-lg;
+            +p, +ol, +ul {
+                @apply pt-3;
+            }
+        }
+        >h3 {
+            @apply ml-8 mr-6 my-2
+                   px-3 py-1
+                   text-base
+                   bg-gray-100
+                   rounded-lg;
+        }
+        >p, >ol, >ul{
+            @apply mx-11 py-0.5
+                   text-lg
+                   break-keep break-words;
+        }
+        ol {
+            @apply ml-16;
+        }
+        a {
+            @apply font-bold underline;
+        }
+    }
+</style>
