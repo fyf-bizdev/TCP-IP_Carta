@@ -44,6 +44,7 @@ const CMicon = icon(faCircleMinus, {
     </section>
     <section id="rule">
         <h2><Fragment set:html={Ethicon.html}/> 遊び方</h2>
+        <h3>遊び方1（カルタモード）</h3>
         <ol class="list-decimal">
             <li>表を<wbr>上にして、取り札を<wbr>ランダムに<wbr>並べます。</li>
             <div class="imageset">
@@ -80,6 +81,20 @@ const CMicon = icon(faCircleMinus, {
                 </ul>
             </details>
         </section>
+            <h3>遊び方2（花札モード）</h3>
+            <p class="mx-11 py-0.5 text-lg break-keep break-words">
+            カードを集めて役を構成する花札（こいこい）風の遊び方です。
+            脆弱性のあるプロトコルの減点や特殊カードの使いどころで
+            戦略性が求められるモードです。
+            </p>
+            <p class="mx-11 py-0.5 text-lg">
+                <a
+                 href={`${import.meta.env.BASE_URL}files/tcpip-hanafuda-rule_JP_v1.pdf`}
+                  download
+                >
+                遊び方2の詳細ルール（PDF）をダウンロード
+                </a>
+            </p>
     </section>
     <section id="content">
         <h2><Fragment set:html={Ethicon.html}/> 取り札の例</h2>
