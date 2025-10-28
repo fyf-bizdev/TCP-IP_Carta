@@ -16,6 +16,8 @@ import dnsFront from '../assets/dns_front.svg';
 import dnsBack from '../assets/dns_back.svg';
 import hsrpFront from '../assets/hsrp_front.svg';
 import hsrpBack from '../assets/hsrp_back.svg';
+import rulePdf from '../assets/tcpip-hanafuda-rule_JP_v1.pdf?url';
+
 
 const Ethicon = icon(faEthernet, {
     styles: {
@@ -88,12 +90,7 @@ const CMicon = icon(faCircleMinus, {
             <p>戦略性が求められるモードです。</p>
             </p>
             <p class="mx-11 py-0.5 text-lg">
-                <a
-                 href={`${import.meta.env.BASE_URL}files/tcpip-hanafuda-rule_JP_v1.pdf`}
-                  download
-                >
-                遊び方2の詳細ルール（PDF）をダウンロード
-                </a>
+                <a href={rulePdf} download>遊び方2の詳細ルール（PDF）をダウンロード</a>
             </p>
     </section>
     <section id="content">
