@@ -3,6 +3,8 @@ import Layout from "../layouts/Layout.astro"
 import '@fortawesome/fontawesome-svg-core/styles.css'
 import { icon } from '@fortawesome/fontawesome-svg-core';
 import { faEthernet } from "@fortawesome/free-solid-svg-icons";
+// ✅ 追加: PDF を ?url で取り込み（Astro/Vite が安全なURLに変換）
+import rulePdf from '../assets/tcpip-hanafuda-rule_JP_v1.pdf?url';
 
 const Ethicon = icon(faEthernet, {
     styles: {
