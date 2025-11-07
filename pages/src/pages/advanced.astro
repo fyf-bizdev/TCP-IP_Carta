@@ -30,9 +30,17 @@ const title: string = "購入者向け: 拡張ルール";
     </section>
     <section id="rule_append" class="flex-grow">
         <h2><Fragment set:html={Ethicon.html} /> 遊び方2（花札モード）</h2>
-       <p class="mx-11 py-0.5 text-lg">
-                <a href={rulePdf} download>遊び方2の詳細ルール（PDF）をダウンロード</a>
-       </p>
+        <p class="mx-11 py-0.5 text-lg break-keep break-words">
+            カードを集めて役を構成する花札（こいこい）風の遊び方です。<br />
+            脆弱性のあるプロトコルの減点や特殊カードの使いどころで戦略性が求められるモードです。
+        </p>
+        <p class="mx-11 py-0.5 text-lg">
+            <a href={rulePdf}
+               type="application/pdf"
+               download="TCPIP-Carta_rule_mode2_JP.pdf">
+               遊び方2の詳細ルール（PDF）をダウンロード
+            </a>
+        </p>
     </section>
 </Layout>
 
